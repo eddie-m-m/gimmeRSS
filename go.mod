@@ -1,3 +1,3 @@
 module github.com/eddie-m-m/gimmeRSS
 
-go 1.24
+go 1.23
