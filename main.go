@@ -32,19 +32,22 @@ func main() {
 
 	bbcFeed, err := http.Get(url)
 	if err != nil {
-		fmt.Println("error in fetching url: %v", err)
+		err := fmt.Errorf("error in fetching url: %v", err)
+		fmt.Println(err.Error())
 	}
 	defer bbcFeed.Body.Close()
 
 	body, err := io.ReadAll(bbcFeed.Body)
 	if err != nil {
-		fmt.Println("error while reading feed: %v", err)
+		err := fmt.Errorf("error while reading feed: %v", err)
+		fmt.Println(err.Error())
 	}
 
 	var rss RSS
 	err = xml.Unmarshal(body, &rss)
 	if err != nil {
-		fmt.Println("error while parsing rss: %v", err)
+		err := fmt.Errorf("error while parsing rss: %v", err)
+		fmt.Println(err.Error())
 	}
 
 	fmt.Println("Feed: ", rss.Channel.Title)
