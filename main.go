@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+
+	"github.com/eddie-m-m/gimmeRSS/utils"
 )
 
 type RSS struct {
@@ -28,6 +30,7 @@ type Item struct {
 
 func main() {
 
+	utils.AddFeeds()
 	url := "https://feeds.bbci.co.uk/news/world/rss.xml"
 
 	bbcFeed, err := http.Get(url)
