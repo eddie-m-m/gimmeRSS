@@ -1,3 +1,3 @@
-module github.com/eddie-m-m/gimmeRSS
+module github.com/eddie-m-m/headlines
 
 go 1.24
